@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.min.css?_v=20220727021754" />
+    <title>Нам</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap"
+        rel="stylesheet">
+  </head>
+
+  <body class="main__body">
+    <div class="wrapper">
+      <div class="container main__container">
+        <header class="header">
+          <div class="container header__container">
+            <button
+              class="burger"
+              data-burger
+              aria-label="Открыть меню"
+              aria-expanded="false"
+            >
+              <span class="burger__line"></span>
+            </button>
+            <a class="header__logo" @click="logout()">Logout</a>
+          </div>
+        </header>
+
+        <div class="sidebar" data-nav>
+          <a href="/newspage" class="sidebar__link">Новости</a>
+          <a href="/projectspage" class="sidebar__link">Проекты</a>
+          <a href="/wepage" class="sidebar__link">Мы помогли</a>
+          <a href="/uspage" class="sidebar__link">Нам помогли</a>
+        </div>
+        <main class="content">
+          <div class="content__container">
+            <div class="content__items">
+              <div class="content__item" v-for="item in content">
+                <div class="content__info">
+                  <div class="content__info-item">{{ item.date }}</div>
+                  <div class="content__info-item">{{ item.benefactor }}</div>
+                  <div class="content__info-item">{{ item.objective }}</div>
+                  <div class="content__info-item">{{ item.amount }}</div>
+                </div>
+                <button
+                  class="button button__item"
+                  @click="removeContent(item.id)"
+                ></button>
+              </div>
+            </div>
+            <form
+              class="content__add"
+              @submit.prevent="createContent"
+              enctype="multipart/form-data"
+            >
+              <input
+                id="date"
+                v-model="form.date"
+                placeholder="Дата"
+                type="text"
+                class="content__input input"
+              />
+              <input
+                id="benefactor"
+                v-model="form.benefactor"
+                placeholder="Благопотворитель"
+                type="text"
+                class="content__input input"
+              />
+              <input
+                id="objective"
+                v-model="form.objective"
+                placeholder="Цель"
+                type="text"
+                class="content__input input"
+              />
+              <input
+                id="amount"
+                v-model="form.amount"
+                placeholder="Сумма"
+                type="text"
+                class="content__input input"
+              />
+              
+              <button class="button content__button">Добавить</button>
+            </form>
+        </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      
+    </div>
+  </body>
+  
+  <script type="module" src="frontendUs.js"></script>
+  
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.min.css?_v=20220727021754" />
+    <title>Проекты</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="main__body">
+    <div class="wrapper">
+      <div class="container main__container">
+        <header class="header">
+          <div class="container header__container">
+            <button
+              class="burger"
+              data-burger
+              aria-label="Открыть меню"
+              aria-expanded="false"
+            >
+              <span class="burger__line"></span>
+            </button>
+            <a class="header__logo" @click="logout()">Logout</a>
+          </div>
+        </header>
+
+        <div class="sidebar" data-nav>
+          <a href="/newspage" class="sidebar__link">Новости</a>
+          <a href="/projectspage" class="sidebar__link">Проекты</a>
+          <a href="/wepage" class="sidebar__link">Мы помогли</a>
+          <a href="/uspage" class="sidebar__link">Нам помогли</a>
+        </div>
+        <main class="content">
+          <div class="content__container">
+            <div class="content__items">
+              <div class="content__item" v-for="item in content">
+                <div class="content__info">
+                  <div class="content__info-item">{{ item.title }}</div>
+                  <div class="content__info-item">{{ item.subtitle }}</div>
+                  <div class="content__info-item">{{ item.description }}</div>
+                  <div class="content__info-item">
+                    <img v-bind:src="'/uploads/' + item.img" />
+                  </div>
+                </div>
+                <button
+                  class="button button__item"
+                  @click="removeContent(item.id)"
+                ></button>
+              </div>
+            </div>
+            <form
+              class="content__add"
+              @submit.prevent="createContent"
+              enctype="multipart/form-data"
+            >
+              <input
+                id="title"
+                v-model="form.title"
+                placeholder="Заголовок"
+                type="text"
+                class="content__input input"
+              />
+              <input
+                id="subtitle"
+                v-model="form.subtitle"
+                placeholder="Подзаголовок"
+                type="text"
+                class="content__input input"
+              />
+              <input
+                id="description"
+                v-model="form.description"
+                placeholder="Описание"
+                type="text"
+                class="content__input input"
+              />
+              <!-- <input id="date" v-model="form.date" type="text" placeholder="Дата" class="content__input input" /> -->
+              <div class="content__file">
+                <label class="input-file">
+                  <input type="file" id="file" ref="file" multiple />
+                  <!-- <img :src="img" v-if="img" /> -->
+                  <span>Вставить&nbsp;файл</span>
+                </label>
+              </div>
+              <button class="button content__button">Добавить</button>
+            </form>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+
+  <script type="module" src="frontendProjects.js"></script>
+</html>
