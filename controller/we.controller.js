@@ -2,12 +2,16 @@ const db = require("../db");
 
 class WeController {
   async createWe(req, res) {
+    try{
     const { date, beneficiary, objective, amount } = req.body;
     const newWe = await db.query(
       "INSERT INTO we (date, beneficiary, objective, amount) values ($1, $2, $3, $4) RETURNING *",
       [date, beneficiary, objective, amount]
     );
     res.json(newWe.rows[0]);
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   async getWe(req, res) {
