@@ -36,6 +36,14 @@ class ProjectsController {
     const projects = await db.query("DELETE FROM projects WHERE id = $1", [id]);
     res.json(projects.rows[0]);
   }
+
+  async projectGet(req, res) {
+    const id = req.params.id;
+    res.cookie('id', id);
+    // res.json(id);
+    res.redirect('http://127.0.0.1:5500/project.html');
+    
+  }
 }
 
 module.exports = new ProjectsController();

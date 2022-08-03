@@ -66,19 +66,20 @@
                 type="text"
                 class="content__input input"
               />
-              <input
+              <textarea
+                class="content__textarea textarea"
                 id="description"
                 v-model="form.description"
                 placeholder="Описание"
-                type="text"
-                class="content__input input"
-              />
+                style="white-space: pre;"
+              ></textarea>
               <input
                 id="date"
                 v-model="form.date"
                 type="text"
                 placeholder="Дата"
                 class="content__input input"
+                
               />
               <div class="content__file">
                 <label class="input-file">
