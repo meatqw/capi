@@ -7,7 +7,7 @@ router.get("/projects", projectsController.getProjects);
 router.get("/projects/:id", projectsController.getOneProjects);
 router.put("/projects", projectsController.updateProjects);
 router.delete("/projects/:id", projectsController.deleteProjects);
-router.get("/project/:id", projectsController.projectGet);
+// router.get("/project/:id", projectsController.projectGet); // save cookie
 
 
 module.exports = router;

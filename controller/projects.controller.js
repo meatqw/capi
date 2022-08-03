@@ -2,10 +2,10 @@ const db = require("../db");
 
 class ProjectsController {
   async createProjects(req, res) {
-    const { title, subtitle, description, img, data } = req.body;
+    const { title, subtitle, description, img, data, documents } = req.body;
     const newProject = await db.query(
-      "INSERT INTO projects (title, subtitle, description, img, data) values ($1, $2, $3, $4, $5) RETURNING *",
-      [title, subtitle, description, img, data]
+      "INSERT INTO projects (title, subtitle, description, img, data, documents) values ($1, $2, $3, $4, $5, $6) RETURNING *",
+      [title, subtitle, description, img, data, documents]
     );
     res.json(newProject.rows[0]);
   }
@@ -22,10 +22,10 @@ class ProjectsController {
   }
 
   async updateProjects(req, res) {
-    const { title, subtitle, description, img, data } = req.body;
+    const { title, subtitle, description, img, data, documents } = req.body;
     const projects = await db.query(
-      "UPDATE projects set title = $1, subtitle = $2, description = $3, img = $4, data = $5 where id = $6 RETURNING *",
-      [title, subtitle, description, img, data, id]
+      "UPDATE projects set title = $1, subtitle = $2, description = $3, img = $4, data = $5, documents = $6 where id = $7 RETURNING *",
+      [title, subtitle, description, img, data, documents, id]
     );
 
     res.json(projects.rows[0]);

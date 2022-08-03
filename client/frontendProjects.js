@@ -17,6 +17,7 @@ new Vue({
         subtitle: "",
         description: "",
         img: "",
+        documents: "",
         // data: ""
       },
       content: [],
@@ -49,14 +50,29 @@ new Vue({
         item.id = Date.now();
         item.data = "none";
         item.img = filename.data;
+        
+        // processing and save documents
+
+        let docs = { doc: []};
+        var document = item.documents.split("\n");
+        console.log(document);
+        for (var i = 0; i < document.length; i++) {
+          var link = document[i].split("|")[0]
+          var name = document[i].split("|")[1]
+          console.log(link)
+          docs.doc.push({'link': link, 'name': name})
+        }
+
+        item.documents = docs;
         const newItem = await request("/api/projects", "POST", item);
 
         this.content.push(newItem);
 
         this.form.title =
-          this.form.subtitle =
-          this.form.description =
-          this.form.img =
+        this.form.subtitle =
+        this.form.description =
+        this.form.img =
+        this.form.documents =
             "";
         // this.form.data =
       }

@@ -186,7 +186,7 @@ textarea:focus {
   font-family: inherit;
   font-size: 16px;
   width: 100%;
-  height: 26px;
+  height: 45px;
   padding: 0 20px;
   color: #000;
   border: 1px solid var(--gray-text);
@@ -218,7 +218,7 @@ textarea:focus {
   font-family: inherit;
   color: inherit;
   background-color: transparent;
-  height: 100%;
+  height: auto;
   font-size: 14px;
   border: 1px solid var(--gray-text);
   resize: none;
@@ -564,19 +564,34 @@ textarea:focus {
   -ms-grid-columns: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
 }
 
-.content__textarea {
-  font-size: 14px;
-  -ms-grid-row: 1;
-      grid-row-start: 1;
-  -ms-grid-row-span: 3;
-  grid-row-end: 4;
+.textarea-info {
   -ms-grid-column: 2;
       grid-column-start: 2;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  -ms-grid-row-span: 2;
+  grid-row-end: 4;
+}
+
+.textarea-pdf {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-row-span: 1;
+  grid-row-end: 2;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+}
+
+.input-2 {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+}
+
+.input-3 {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
 }
 
 .content__container {
@@ -628,6 +643,7 @@ textarea:focus {
   -ms-grid-columns: (1fr)[4];
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 5px;
+  grid-row-gap: 3px;
   -webkit-box-shadow: var(--shadow);
           box-shadow: var(--shadow);
   background-color: var(--second-bg);
@@ -734,12 +750,6 @@ textarea:focus {
   .content__textarea {
     height: 100%;
     max-width: 100%;
-    -ms-grid-row: 1;
-        grid-row-start: 1;
-    -ms-grid-row-span: 3;
-    grid-row-end: 4;
-    -ms-grid-column: 2;
-        grid-column-start: 2;
   }
 
   .content__container {

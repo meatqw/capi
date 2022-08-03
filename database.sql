@@ -5,7 +5,8 @@ create TABLE projects(
     subtitle VARCHAR(255),
     description TEXT,
     img VARCHAR(255),
-    data VARCHAR(255)
+    data VARCHAR(255),
+    documents JSON
 );
 
 create TABLE news(

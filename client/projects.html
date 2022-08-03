@@ -46,8 +46,14 @@
                   <div class="content__info-item">{{ item.subtitle }}</div>
                   <div class="content__info-item">{{ item.description }}</div>
                   <div class="content__info-item">
+                    <div v-for="doc in item.documents.doc">
+                    <span>Ссылка: {{doc.link}} | Название: {{doc.name}}</span><br>
+                  </div>
+                  </div>
+                  <div class="content__info-item">
                     <img v-bind:src="'/uploads/' + item.img" />
                   </div>
+                  
                 </div>
                 <button
                   class="button button__item"
@@ -72,20 +78,27 @@
                 v-model="form.subtitle"
                 placeholder="Подзаголовок"
                 type="text"
-                class="content__input input"
+                class="content__input input input-2"
               />
               <textarea
-                class="content__textarea textarea"
+                class="content__textarea textarea textarea-info"
                 id="description"
                 v-model="form.description"
                 placeholder="Описание"
-                style="white-space: pre;"
+                style="white-space: pre"
               ></textarea>
-              <!-- <input id="date" v-model="form.date" type="text" placeholder="Дата" class="content__input input" /> -->
+              <!-- textarea pdf -->
+              <textarea
+                id="documents"
+                v-model="form.documents"
+                style="white-space: pre"
+                class="content__textarea textarea textarea-pdf"
+                placeholder="Ссылка|Название файла"
+              ></textarea>
+
               <div class="content__file">
                 <label class="input-file">
                   <input type="file" id="file" ref="file" multiple />
-                  <!-- <img :src="img" v-if="img" /> -->
                   <span>Вставить&nbsp;файл</span>
                 </label>
               </div>
