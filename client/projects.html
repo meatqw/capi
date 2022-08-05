@@ -59,6 +59,9 @@
                   class="button button__item"
                   @click="removeContent(item.id)"
                 ></button>
+                <button
+                  @click="mark(item.id)"
+                >MARK</button>
               </div>
             </div>
             <form
@@ -103,6 +106,9 @@
                 </label>
               </div>
               <button class="button content__button">Добавить</button>
+              <div v-if="update_id!=''">
+              <button class="button content__button" type="button" @click="update()">Update</button>
+              </div>
             </form>
           </div>
         </main>

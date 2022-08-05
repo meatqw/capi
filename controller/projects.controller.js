@@ -22,10 +22,10 @@ class ProjectsController {
   }
 
   async updateProjects(req, res) {
-    const { title, subtitle, description, img, data, documents } = req.body;
+    const {id, title, subtitle, description, img, data, documents } = req.body;
     const projects = await db.query(
       "UPDATE projects set title = $1, subtitle = $2, description = $3, img = $4, data = $5, documents = $6 where id = $7 RETURNING *",
-      [title, subtitle, description, img, data, documents, id]
+      [title, subtitle, description, img, data, documents, id,]
     );
 
     res.json(projects.rows[0]);

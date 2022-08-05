@@ -21,6 +21,7 @@ new Vue({
         // data: ""
       },
       content: [],
+      update_id: "",
     };
   },
   computed: {
@@ -50,17 +51,17 @@ new Vue({
         item.id = Date.now();
         item.data = "none";
         item.img = filename.data;
-        
+
         // processing and save documents
 
-        let docs = { doc: []};
+        let docs = { doc: [] };
         var document = item.documents.split("\n");
         console.log(document);
         for (var i = 0; i < document.length; i++) {
-          var link = document[i].split("|")[0]
-          var name = document[i].split("|")[1]
-          console.log(link)
-          docs.doc.push({'link': link, 'name': name})
+          var link = document[i].split("|")[0];
+          var name = document[i].split("|")[1];
+          console.log(link);
+          docs.doc.push({ link: link, name: name });
         }
 
         item.documents = docs;
@@ -69,10 +70,10 @@ new Vue({
         this.content.push(newItem);
 
         this.form.title =
-        this.form.subtitle =
-        this.form.description =
-        this.form.img =
-        this.form.documents =
+          this.form.subtitle =
+          this.form.description =
+          this.form.img =
+          this.form.documents =
             "";
         // this.form.data =
       }
@@ -80,6 +81,75 @@ new Vue({
     async removeContent(id) {
       await request(`/api/projects/${id}`, "DELETE");
       this.content = this.content.filter((c) => c.id !== id);
+    },
+    // maek data for update
+    async mark(id) {
+      const item = this.content.find((c) => c.id === id);
+      //
+      let doc = "";
+      for (var i = 0; i < item.documents.doc.length; i++) {
+        doc +=
+          item.documents.doc[i].link + "|" + item.documents.doc[i].link + "\n";
+      }
+      this.form.title = item.title;
+      this.form.subtitle = item.subtitle;
+      this.form.description = item.description;
+      this.form.img = item.img;
+      this.form.documents = doc.slice(0, -1);
+      this.update_id = id;
+    },
+    async update() {
+      const item = this.content.find((c) => c.id === this.update_id);
+
+      if (this.$refs.file.files.length > 0) {
+        this.Images = this.$refs.file.files[0];
+        const headers = { "Content-Type": "multipart/form-data" };
+        let filename = await axios.post(
+          "/api/upload",
+          { img: this.Images },
+          { headers }
+        );
+        this.form.img = filename.data;
+      } else {
+        this.form.img = item.img;
+      }
+      
+      this.form.data = "none";
+      this.form.id = item.id;
+
+      let docs = { doc: [] };
+      var document = this.form.documents.split("\n");
+
+      for (var i = 0; i < document.length; i++) {
+        var link = document[i].split("|")[0];
+        var name = document[i].split("|")[1];
+        console.log(link);
+        docs.doc.push({ link: link, name: name });
+      }
+
+      this.form.documents = docs
+
+      const updated = await request(`/api/projects`, "PUT", { ...this.form });
+
+      let doc = "";
+      for (var i = 0; i < updated.documents.doc.length; i++) {
+        doc +=
+        updated.documents.doc[i].link + "|" + updated.documents.doc[i].link + "\n";
+      };
+      console.log(doc);
+      item.title = updated.title;
+      item.subtitle = updated.subtitle;
+      item.description = updated.description;
+      item.img = updated.img;
+      item.documents = updated.documents;
+      
+      this.form.title =
+        this.form.subtitle =
+        this.form.description =
+        this.form.img =
+        this.form.documents =
+          "";
+      this.update_id = "";
     },
     async logout() {
       const token = await request("/get-cookie");
