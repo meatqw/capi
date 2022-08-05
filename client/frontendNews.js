@@ -1,13 +1,11 @@
 import Vue from "https://cdn.jsdelivr.net/npm/vue@2.7.0/dist/vue.esm.browser.js";
 
-
 Vue.component("loader", {
   template: `<div style="display: flex; justify-content:center;align-itmes: center"><div class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div></div>
   `,
 });
-
 
 new Vue({
   el: ".wrapper",
@@ -20,7 +18,8 @@ new Vue({
         img: "",
         date: "",
       },
-      content: []
+      content: [],
+      update_id: "",
     };
   },
   computed: {
@@ -38,12 +37,16 @@ new Vue({
       // upload img
       if (this.$refs.file.files.length > 0) {
         this.Images = this.$refs.file.files[0];
-        const headers = { 'Content-Type': 'multipart/form-data' };
-        let filename = await axios.post('/api/upload', {'img': this.Images}, { headers });
+        const headers = { "Content-Type": "multipart/form-data" };
+        let filename = await axios.post(
+          "/api/upload",
+          { img: this.Images },
+          { headers }
+        );
 
         const { ...item } = this.form;
         item.id = Date.now();
-        item.img = filename.data
+        item.img = filename.data;
         const newItem = await request("/api/news", "POST", item);
 
         this.content.push(newItem);
@@ -55,29 +58,77 @@ new Vue({
             "";
       }
     },
+    // maek data for update
+    async mark(id) {
+      const item = this.content.find((c) => c.id === id);
+
+      this.form.title = item.title;
+      this.form.description = item.description;
+      this.form.img = item.img;
+      this.form.date = item.date;
+
+      this.update_id = id;
+    },
+    async update() {
+      const item = this.content.find((c) => c.id === this.update_id);
+
+      if (this.$refs.file.files.length > 0) {
+        this.Images = this.$refs.file.files[0];
+        const headers = { "Content-Type": "multipart/form-data" };
+        let filename = await axios.post(
+          "/api/upload",
+          { img: this.Images },
+          { headers }
+        );
+        this.form.img = filename.data;
+      } else {
+        this.form.img = item.img;
+      }
+
+      this.form.id = item.id;
+
+      const updated = await request(`/api/news`, "PUT", { ...this.form });
+
+      item.title = updated.title;
+      item.description = updated.description;
+      item.img = updated.img;
+      item.date = updated.date;
+
+      this.form.title =
+        this.form.description =
+        this.form.img =
+        this.form.date =
+          "";
+      this.update_id = "";
+    },
     async removeContent(id) {
       await request(`/api/news/${id}`, "DELETE");
       this.content = this.content.filter((c) => c.id !== id);
     },
     async logout() {
-      const token = await request('/get-cookie')
-      await axios.get('/delete-cookie');
-      await axios.post('/logout', token);
-      window.location.href = '/auth'
-    }
+      const token = await request("/get-cookie");
+      await axios.get("/delete-cookie");
+      await axios.post("/logout", token);
+      window.location.href = "/auth";
+    },
   },
   async mounted() {
-
-    this.content = await request('/api/news');
+    this.content = await request("/api/news");
 
     let script_ = document.createElement("script");
-    script_.setAttribute("src", "https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js?_v=20220727050849");
+    script_.setAttribute(
+      "src",
+      "https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js?_v=20220727050849"
+    );
     document.head.appendChild(script_);
     let script = document.createElement("script");
     script.setAttribute("src", "js/app.min.js?_v=20220727021754");
     document.head.appendChild(script);
     let script__ = document.createElement("script");
-    script__.setAttribute("src", "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js");
+    script__.setAttribute(
+      "src",
+      "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+    );
     document.head.appendChild(script__);
   },
 });
