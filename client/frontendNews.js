@@ -56,6 +56,8 @@ new Vue({
           this.form.img =
           this.form.date =
             "";
+
+        switchPanel();
       }
     },
     // maek data for update

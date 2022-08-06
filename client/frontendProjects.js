@@ -76,6 +76,7 @@ new Vue({
           this.form.documents =
             "";
         // this.form.data =
+        switchPanel();
       }
     },
     async removeContent(id) {
@@ -115,7 +116,7 @@ new Vue({
       } else {
         this.form.img = item.img;
       }
-      
+
       this.form.data = "none";
       this.form.id = item.id;
 
@@ -129,22 +130,25 @@ new Vue({
         docs.doc.push({ link: link, name: name });
       }
 
-      this.form.documents = docs
+      this.form.documents = docs;
 
       const updated = await request(`/api/projects`, "PUT", { ...this.form });
 
       let doc = "";
       for (var i = 0; i < updated.documents.doc.length; i++) {
         doc +=
-        updated.documents.doc[i].link + "|" + updated.documents.doc[i].link + "\n";
-      };
+          updated.documents.doc[i].link +
+          "|" +
+          updated.documents.doc[i].link +
+          "\n";
+      }
 
       item.title = updated.title;
       item.subtitle = updated.subtitle;
       item.description = updated.description;
       item.img = updated.img;
       item.documents = updated.documents;
-      
+
       this.form.title =
         this.form.subtitle =
         this.form.description =

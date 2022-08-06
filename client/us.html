@@ -48,14 +48,20 @@
                 <button
                   class="button button__item"
                   @click="removeContent(item.id)"
-                ></button>
+                >Удалить</button>
               </div>
             </div>
+            <button class="button__add button" @click="panelControl()" id="panel">
+              <span id="panel_text">Открыть панель</span>
+            </button>
             <form
               class="content__add"
               @submit.prevent="createContent"
               enctype="multipart/form-data"
+              data-content-add
+              id="form"
             >
+            <div class="content__add--area content__add--inputs">
               <input
                 id="date"
                 v-model="form.date"
@@ -84,8 +90,10 @@
                 type="text"
                 class="content__input input"
               />
-              
+            </div>
+            <div class="content__add--area content__add--buttons">
               <button class="button content__button">Добавить</button>
+            </div>
             </form>
         </div>
             </div>
