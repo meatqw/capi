@@ -12,7 +12,7 @@ create TABLE projects(
 create TABLE news(
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
-    description VARCHAR(255),
+    description TEXT,
     img VARCHAR(255),
     date VARCHAR(255)
 );

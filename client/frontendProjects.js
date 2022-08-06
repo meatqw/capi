@@ -92,7 +92,7 @@ new Vue({
       let doc = "";
       for (var i = 0; i < item.documents.doc.length; i++) {
         doc +=
-          item.documents.doc[i].link + "|" + item.documents.doc[i].link + "\n";
+          item.documents.doc[i].link + "|" + item.documents.doc[i].name + "\n";
       }
       this.form.title = item.title;
       this.form.subtitle = item.subtitle;
