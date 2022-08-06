@@ -62,6 +62,8 @@ new Vue({
     async mark(id) {
       const item = this.content.find((c) => c.id === id);
 
+      switchPanel();
+
       this.form.title = item.title;
       this.form.description = item.description;
       this.form.img = item.img;
@@ -100,6 +102,8 @@ new Vue({
         this.form.date =
           "";
       this.update_id = "";
+
+      switchPanel();
     },
     async removeContent(id) {
       await request(`/api/news/${id}`, "DELETE");
@@ -110,6 +114,15 @@ new Vue({
       await axios.get("/delete-cookie");
       await axios.post("/logout", token);
       window.location.href = "/auth";
+    },
+    async panelControl() {
+      switchPanel();
+      this.form.title =
+        this.form.description =
+        this.form.img =
+        this.form.date =
+          "";
+      this.update_id = "";
     },
   },
   async mounted() {
@@ -151,5 +164,26 @@ async function request(url, method = "GET", data = null) {
     return await response.json();
   } catch (e) {
     console.warn("Error", e.message);
+  }
+}
+
+async function switchPanel() {
+  if (document.getElementById("form").className == "content__add") {
+    document.getElementById("form").className = "content__add content--active";
+  } else {
+    document.getElementById("form").className = "content__add";
+  }
+
+  if (document.getElementById("panel").className == "button__add button") {
+    document.getElementById("panel").className =
+      "button__add button button__add--active";
+  } else {
+    document.getElementById("panel").className = "button__add button";
+  }
+
+  if (document.getElementById("panel_text").innerHTML == "Открыть панель") {
+    document.getElementById("panel_text").innerHTML = "Закрыть панель";
+  } else {
+    document.getElementById("panel_text").innerHTML = "Открыть панель";
   }
 }

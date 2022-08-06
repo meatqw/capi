@@ -85,6 +85,8 @@ new Vue({
     // maek data for update
     async mark(id) {
       const item = this.content.find((c) => c.id === id);
+
+      switchPanel();
       //
       let doc = "";
       for (var i = 0; i < item.documents.doc.length; i++) {
@@ -136,7 +138,7 @@ new Vue({
         doc +=
         updated.documents.doc[i].link + "|" + updated.documents.doc[i].link + "\n";
       };
-      console.log(doc);
+
       item.title = updated.title;
       item.subtitle = updated.subtitle;
       item.description = updated.description;
@@ -150,12 +152,24 @@ new Vue({
         this.form.documents =
           "";
       this.update_id = "";
+
+      switchPanel();
     },
     async logout() {
       const token = await request("/get-cookie");
       await axios.get("/delete-cookie");
       await axios.post("/logout", token);
       window.location.href = "/auth";
+    },
+    async panelControl() {
+      switchPanel();
+      this.form.title =
+        this.form.subtitle =
+        this.form.description =
+        this.form.img =
+        this.form.documents =
+          "";
+      this.update_id = "";
     },
   },
   async mounted() {
@@ -197,5 +211,26 @@ async function request(url, method = "GET", data = null) {
     return await response.json();
   } catch (e) {
     console.warn("Error", e.message);
+  }
+}
+
+async function switchPanel() {
+  if (document.getElementById("form").className == "content__add") {
+    document.getElementById("form").className = "content__add content--active";
+  } else {
+    document.getElementById("form").className = "content__add";
+  }
+
+  if (document.getElementById("panel").className == "button__add button") {
+    document.getElementById("panel").className =
+      "button__add button button__add--active";
+  } else {
+    document.getElementById("panel").className = "button__add button";
+  }
+
+  if (document.getElementById("panel_text").innerHTML == "Открыть панель") {
+    document.getElementById("panel_text").innerHTML = "Закрыть панель";
+  } else {
+    document.getElementById("panel_text").innerHTML = "Открыть панель";
   }
 }

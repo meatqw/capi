@@ -47,67 +47,93 @@
                   <div class="content__info-item">{{ item.description }}</div>
                   <div class="content__info-item">
                     <div v-for="doc in item.documents.doc">
-                    <span>Ссылка: {{doc.link}} | Название: {{doc.name}}</span><br>
-                  </div>
+                      <span>Ссылка: {{doc.link}} | Название: {{doc.name}}</span
+                      ><br />
+                    </div>
                   </div>
                   <div class="content__info-item">
                     <img v-bind:src="'/uploads/' + item.img" />
                   </div>
-                  
                 </div>
-                <button
-                  class="button button__item"
-                  @click="removeContent(item.id)"
-                ></button>
-                <button
-                  @click="mark(item.id)"
-                >Отметить</button>
+                <div class="content__buttons">
+                  <button
+                    class="button button__item"
+                    @click="removeContent(item.id)"
+                  >Удалить</button>
+                  <button
+                    class="button button__item"
+                    @click="mark(item.id)"
+                    data-button-change
+                  >
+                    Отметить
+                  </button>
+                </div>
               </div>
             </div>
+            <button
+              class="button__add button"
+              @click="panelControl()"
+              id="panel"
+            >
+              <span id="panel_text">Открыть панель</span>
+            </button>
             <form
               class="content__add"
               @submit.prevent="createContent"
               enctype="multipart/form-data"
+              data-content-add
+              id="form"
             >
-              <input
-                id="title"
-                v-model="form.title"
-                placeholder="Заголовок"
-                type="text"
-                class="content__input input"
-              />
-              <input
-                id="subtitle"
-                v-model="form.subtitle"
-                placeholder="Подзаголовок"
-                type="text"
-                class="content__input input input-2"
-              />
-              <textarea
-                class="content__textarea textarea textarea-info"
-                id="description"
-                v-model="form.description"
-                placeholder="Описание"
-                style="white-space: pre"
-              ></textarea>
-              <!-- textarea pdf -->
-              <textarea
-                id="documents"
-                v-model="form.documents"
-                style="white-space: pre"
-                class="content__textarea textarea textarea-pdf"
-                placeholder="Ссылка|Название файла"
-              ></textarea>
-
-              <div class="content__file">
-                <label class="input-file">
-                  <input type="file" id="file" ref="file" multiple />
-                  <span>Вставить&nbsp;файл</span>
-                </label>
+              <div class="content__add--area content__add--inputs">
+                <input
+                  id="title"
+                  v-model="form.title"
+                  placeholder="Заголовок"
+                  type="text"
+                  class="content__input input"
+                />
+                <input
+                  id="subtitle"
+                  v-model="form.subtitle"
+                  placeholder="Подзаголовок"
+                  type="text"
+                  class="content__input input input"
+                />
               </div>
-              <button class="button content__button">Добавить</button>
-              <div v-if="update_id!=''">
-              <button class="button content__button" type="button" @click="update()">Обновить</button>
+              <div class="content__add--area content__add--textareas">
+                <textarea
+                  class="content__textarea textarea textarea-info"
+                  id="description"
+                  v-model="form.description"
+                  placeholder="Описание"
+                  style="white-space: pre"
+                ></textarea>
+                <!-- textarea pdf -->
+                <textarea
+                  id="documents"
+                  v-model="form.documents"
+                  style="white-space: pre"
+                  class="content__textarea textarea textarea-pdf"
+                  placeholder="Ссылка|Название файла"
+                ></textarea>
+              </div>
+              <div class="content__add--area content__add--buttons">
+                <div class="content__file">
+                  <label class="input-file">
+                    <input type="file" id="file" ref="file" multiple />
+                    <span>Вставить&nbsp;файл</span>
+                  </label>
+                </div>
+                <button class="button content__button">Добавить</button>
+                <div v-if="update_id!=''">
+                  <button
+                    class="button content__button"
+                    type="button"
+                    @click="update()"
+                  >
+                    Обновить
+                  </button>
+                </div>
               </div>
             </form>
           </div>

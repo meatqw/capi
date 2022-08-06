@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.min.css?_v=20220727050849" />
+    <link rel="stylesheet" href="css/style.min.css?_v=20220806055226">
     <title>Новости</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,53 +48,74 @@
                     <img v-bind:src="'/uploads/' + item.img" />
                   </div>
                 </div>
+                <div class="content__buttons">
                 <button
                   class="button button__item"
                   @click="removeContent(item.id)"
-                ></button>
+                >Удалить</button>
                 <button
+                  class="button button__item"
                   @click="mark(item.id)"
-                >Отметить</button>
+                  data-button-change
+                >
+                  Отметить
+                </button>
+              </div>
               </div>
             </div>
+            <button class="button__add button" @click="panelControl()" id="panel">
+              <span id="panel_text">Открыть панель</span>
+            </button>
+
             <form
               class="content__add"
               @submit.prevent="createContent"
               enctype="multipart/form-data"
+              data-content-add
+              id="form"
             >
-              <input
-                id="title"
-                v-model="form.title"
-                placeholder="Заголовок"
-                type="text"
-                class="content__input input"
-              />
-              <textarea
-                class="content__textarea textarea"
-                id="description"
-                v-model="form.description"
-                placeholder="Описание"
-                style="white-space: pre;"
-              ></textarea>
-              <input
-                id="date"
-                v-model="form.date"
-                type="text"
-                placeholder="Дата"
-                class="content__input input"
-                
-              />
-              <div class="content__file">
-                <label class="input-file">
-                  <input type="file" id="file" ref="file" multiple />
-                  <!-- <img :src="img" v-if="img" /> -->
-                  <span>Вставить&nbsp;файл</span>
-                </label>
+              <div class="content__add--area content__add--inputs">
+                <input
+                  id="title"
+                  v-model="form.title"
+                  placeholder="Заголовок"
+                  type="text"
+                  class="content__input input"
+                />
+                <input
+                  id="date"
+                  v-model="form.date"
+                  type="text"
+                  placeholder="Дата"
+                  class="content__input input"
+                />
               </div>
-              <button class="button content__button">Добавить</button>
-              <div v-if="update_id!=''">
-                <button class="button content__button" type="button" @click="update()">Обновить</button>
+              <div class="content__add--area content__add--textareas">
+                <textarea
+                  class="content__textarea textarea"
+                  id="description"
+                  v-model="form.description"
+                  placeholder="Описание"
+                  style="white-space: pre"
+                ></textarea>
+              </div>
+              <div class="content__add--area content__add--buttons">
+                <div class="content__file">
+                  <label class="input-file">
+                    <input type="file" id="file" ref="file" multiple />
+                    <!-- <img :src="img" v-if="img" /> -->
+                    <span>Вставить&nbsp;файл</span>
+                  </label>
                 </div>
+                <button class="button content__button">Добавить</button>
+                <div v-if="update_id!=''">
+                  <button
+                    class="button content__button"
+                    type="button"
+                    @click="update()"
+                  >Обновить</button>
+                </div>
+              </div>
             </form>
           </div>
         </main>
