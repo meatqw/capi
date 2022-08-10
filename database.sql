@@ -6,7 +6,8 @@ create TABLE projects(
     description TEXT,
     img VARCHAR(255),
     data VARCHAR(255),
-    documents JSON
+    documents JSON,
+    date_create timestamp default CURRENT_TIMESTAMP
 );
 
 create TABLE news(
@@ -14,7 +15,8 @@ create TABLE news(
     title VARCHAR(255),
     description TEXT,
     img VARCHAR(255),
-    date VARCHAR(255)
+    date VARCHAR(255),
+    date_create timestamp default CURRENT_TIMESTAMP
 );
 
 create TABLE us(
@@ -22,7 +24,8 @@ create TABLE us(
     date VARCHAR(255),
     benefactor VARCHAR(255),
     objective VARCHAR(255),
-    amount VARCHAR(255)
+    amount VARCHAR(255),
+    date_create timestamp default CURRENT_TIMESTAMP
 );
 
 create TABLE we(
@@ -30,5 +33,15 @@ create TABLE we(
     date VARCHAR(255),
     beneficiary VARCHAR(255),
     objective VARCHAR(255),
-    amount VARCHAR(255)
+    amount VARCHAR(255),
+    date_create timestamp default CURRENT_TIMESTAMP
+);
+
+create TABLE help(
+    id SERIAL PRIMARY KEY,
+    fullname VARCHAR(255),
+    email VARCHAR(255),
+    phone VARCHAR(255),
+    documents JSON,
+    date_create timestamp default CURRENT_TIMESTAMP
 );

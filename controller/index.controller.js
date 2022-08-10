@@ -13,6 +13,9 @@ class IndexController {
   async renderWe(req, res) {
     res.sendFile(path.resolve("client", "we.html"));
   }
+  async renderHelp(req, res) {
+    res.sendFile(path.resolve("client", "help.html"));
+  }
 }
 
 module.exports = new IndexController();

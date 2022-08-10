@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.min.css?_v=20220727021754" />
-    <title>Проекты</title>
+    <title>Заявки</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,17 +43,13 @@
             <div class="content__items">
               <div class="content__item" v-for="item in content">
                 <div class="content__info">
-                  <div class="content__info-item">{{ item.title }}</div>
-                  <div class="content__info-item">{{ item.subtitle }}</div>
-                  <div class="content__info-item">{{ item.description }}</div>
+                  <div class="content__info-item">{{ item.fullname }}</div>
+                  <div class="content__info-item">{{ item.email }}</div>
+                  <div class="content__info-item">{{ item.phone }}</div>
                   <div class="content__info-item">
-                    <div v-for="doc in item.documents.doc">
-                      <span>Ссылка: {{doc.link}} | Название: {{doc.name}}</span
-                      ><br />
+                    <div v-for="doc in item.documents.docs">
+                      <a v-bind:href="'/uploads/' + doc" style="background-color: black;">{{doc}}</a>
                     </div>
-                  </div>
-                  <div class="content__info-item">
-                    <img v-bind:src="'/uploads/' + item.img" />
                   </div>
                 </div>
                 <div class="content__buttons">
@@ -61,23 +57,23 @@
                     class="button button__item"
                     @click="removeContent(item.id)"
                   >Удалить</button>
-                  <button
+                  <!-- <button
                     class="button button__item"
                     @click="mark(item.id)"
                     data-button-change
                   >
                     Отметить
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
-            <button
+            <!-- <button
               class="button__add button"
               @click="panelControl()"
               id="panel"
             >
               <span id="panel_text">Открыть панель</span>
-            </button>
+            </button> -->
             <form
               class="content__add"
               @submit.prevent="createContent"
@@ -87,28 +83,28 @@
             >
               <div class="content__add--area content__add--inputs">
                 <input
-                  id="title"
-                  v-model="form.title"
-                  placeholder="Заголовок"
+                  id="fullname"
+                  v-model="form.fullname"
+                  placeholder="ФИО"
                   type="text"
                   class="content__input input"
                 />
                 <input
-                  id="subtitle"
-                  v-model="form.subtitle"
-                  placeholder="Подзаголовок"
+                  id="email"
+                  v-model="form.email"
+                  placeholder="Почта"
+                  type="text"
+                  class="content__input input input"
+                />
+                <input
+                  id="phone"
+                  v-model="form.phone"
+                  placeholder="Телефон"
                   type="text"
                   class="content__input input input"
                 />
               </div>
               <div class="content__add--area content__add--textareas">
-                <textarea
-                  class="content__textarea textarea textarea-info"
-                  id="description"
-                  v-model="form.description"
-                  placeholder="Описание"
-                  style="white-space: pre"
-                ></textarea>
                 <!-- textarea pdf -->
                 <textarea
                   id="documents"
@@ -119,12 +115,6 @@
                 ></textarea>
               </div>
               <div class="content__add--area content__add--buttons">
-                <div class="content__file">
-                  <label class="input-file">
-                    <input type="file" id="file" ref="file" multiple />
-                    <span>Вставить&nbsp;файл</span>
-                  </label>
-                </div>
                 <button class="button content__button">Добавить</button>
                 <div v-if="update_id!=''">
                   <button
@@ -143,5 +133,5 @@
     </div>
   </body>
 
-  <script type="module" src="frontendProjects.js"></script>
+  <script type="module" src="frontendHelp.js"></script>
 </html>
