@@ -6,6 +6,7 @@ const usRouter = require("./routes/us.routes");
 const indexRoutes = require("./routes/index.routes");
 const authRoutes = require("./routes/auth.routes");
 const helpRouter = require("./routes/help.routes");
+const videoRouter = require("./routes/video.router");
 
 const cookieParser = require("cookie-parser");
 
@@ -66,6 +67,10 @@ app.use("/uploads", express.static("uploads"));
 
 // news
 app.use("/api", newsRouter);
+
+
+// videos
+app.use("/api", videoRouter);
 
 // projects
 app.use("/api", projectsRouter);

@@ -45,3 +45,11 @@ create TABLE help(
     documents JSON,
     date_create timestamp default CURRENT_TIMESTAMP
 );
+
+create TABLE video(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    description VARCHAR(600),
+    link VARCHAR(255),
+    date_create timestamp default CURRENT_TIMESTAMP
+);

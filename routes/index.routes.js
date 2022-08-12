@@ -28,6 +28,7 @@ router.get("/projectspage", authenticateJWT, indexController.renderProjects);
 router.get("/uspage", authenticateJWT, indexController.renderUs);
 router.get("/wepage", authenticateJWT, indexController.renderWe);
 router.get("/help", authenticateJWT, indexController.renderHelp);
+router.get("/video", authenticateJWT, indexController.renderVideo);
 
 
 module.exports = router;

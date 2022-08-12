@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.min.css?_v=20220727021754" />
-    <title>Проекты</title>
+    <link rel="stylesheet" href="css/style.min.css?_v=20220806055226">
+    <title>Новости</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,7 +30,6 @@
             <a class="header__logo" @click="logout()">Logout</a>
           </div>
         </header>
-
         <div class="sidebar" data-nav>
           <a href="/newspage" class="sidebar__link">Новости</a>
           <a href="/projectspage" class="sidebar__link">Проекты</a>
@@ -45,40 +44,28 @@
               <div class="content__item" v-for="item in content">
                 <div class="content__info">
                   <div class="content__info-item">{{ item.title }}</div>
-                  <div class="content__info-item">{{ item.subtitle }}</div>
                   <div class="content__info-item">{{ item.description }}</div>
-                  <div class="content__info-item">
-                    <div v-for="doc in item.documents.doc">
-                      <span>Ссылка: {{doc.link}} | Название: {{doc.name}}</span
-                      ><br />
-                    </div>
-                  </div>
-                  <div class="content__info-item">
-                    <img v-bind:src="'/uploads/' + item.img" />
-                  </div>
+                  <div class="content__info-item">{{ item.link }}</div>
                 </div>
                 <div class="content__buttons">
-                  <button
-                    class="button button__item"
-                    @click="removeContent(item.id)"
-                  >Удалить</button>
-                  <button
-                    class="button button__item"
-                    @click="mark(item.id)"
-                    data-button-change
-                  >
-                    Отметить
-                  </button>
-                </div>
+                <button
+                  class="button button__item"
+                  @click="removeContent(item.id)"
+                >Удалить</button>
+                <button
+                  class="button button__item"
+                  @click="mark(item.id)"
+                  data-button-change
+                >
+                  Отметить
+                </button>
+              </div>
               </div>
             </div>
-            <button
-              class="button__add button"
-              @click="panelControl()"
-              id="panel"
-            >
+            <button class="button__add button" @click="panelControl()" id="panel">
               <span id="panel_text">Открыть панель</span>
             </button>
+
             <form
               class="content__add"
               @submit.prevent="createContent"
@@ -95,46 +82,31 @@
                   class="content__input input"
                 />
                 <input
-                  id="subtitle"
-                  v-model="form.subtitle"
-                  placeholder="Подзаголовок"
+                  id="title"
+                  v-model="form.link"
+                  placeholder="Ссылка"
                   type="text"
-                  class="content__input input input"
+                  class="content__input input"
                 />
               </div>
               <div class="content__add--area content__add--textareas">
                 <textarea
-                  class="content__textarea textarea textarea-info"
+                  class="content__textarea textarea"
                   id="description"
                   v-model="form.description"
                   placeholder="Описание"
                   style="white-space: pre"
                 ></textarea>
-                <!-- textarea pdf -->
-                <textarea
-                  id="documents"
-                  v-model="form.documents"
-                  style="white-space: pre"
-                  class="content__textarea textarea textarea-pdf"
-                  placeholder="Ссылка|Название файла"
-                ></textarea>
               </div>
               <div class="content__add--area content__add--buttons">
-                <div class="content__file">
-                  <label class="input-file">
-                    <input type="file" id="file" ref="file" multiple />
-                    <span>Вставить&nbsp;файл</span>
-                  </label>
-                </div>
+        
                 <button class="button content__button">Добавить</button>
                 <div v-if="update_id!=''">
                   <button
                     class="button content__button"
                     type="button"
                     @click="update()"
-                  >
-                    Обновить
-                  </button>
+                  >Обновить</button>
                 </div>
               </div>
             </form>
@@ -143,6 +115,5 @@
       </div>
     </div>
   </body>
-
-  <script type="module" src="frontendProjects.js"></script>
+  <script type="module" src="frontendVideo.js"></script>
 </html>
