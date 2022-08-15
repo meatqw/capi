@@ -22,11 +22,11 @@ class sendController {
             from: "Цитадель <example@gmail.com>",
             to: "user@example.com, user@example.com",
             subject: "Заявка",
-            text: `Имя: ${name}\nПочта: ${mail}\nТелефон: ${phone}\nДокументы:\n ${doc}`,
+            text: `Имя: ${name}\nПочта: ${mail}\nТелефон: ${phone}\nДокументы:\n${doc}`,
             html: `<strong>Имя: </strong>${name}</br>
             <strong>Почта: </strong>${mail}</br>
             <strong>Телефон: </strong>${phone}</br>
-            <strong>Документы: </strong><br>${doc}`,
+            <strong>Документы: <br></strong>${doc}`,
         });
 
         console.log(result);
