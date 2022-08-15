@@ -12,7 +12,7 @@ class helpController {
 
   async getAppHelp(req, res) {
     const help = await db.query("SELECT * FROM help");
-    res.json(help.rows);
+    res.json(help.rows.reverse());
   }
 
   async getOneAppHelp(req, res) {

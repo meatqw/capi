@@ -12,7 +12,7 @@ class UsController {
 
   async getUs(req, res) {
     const us = await db.query("SELECT * FROM us");
-    res.json(us.rows);
+    res.json(us.rows.reverse());
   }
 
   async getOneUs(req, res) {

@@ -12,7 +12,7 @@ class videoController {
 
   async getVideo(req, res) {
     const video = await db.query("SELECT * FROM video");
-    res.json(video.rows);
+    res.json(video.rows.reverse());
   }
 
   async getOneVideo(req, res) {

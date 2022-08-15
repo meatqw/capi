@@ -12,7 +12,7 @@ class ProjectsController {
 
   async getProjects(req, res) {
     const projects = await db.query("SELECT * FROM projects");
-    res.json(projects.rows);
+    res.json(projects.rows.reverse());
   }
 
   async getOneProjects(req, res) {

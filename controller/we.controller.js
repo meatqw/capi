@@ -16,7 +16,7 @@ class WeController {
 
   async getWe(req, res) {
     const we = await db.query("SELECT * FROM we");
-    res.json(we.rows);
+    res.json(we.rows.reverse());
   }
 
   async getOneWe(req, res) {
