@@ -19,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.5-lts.1",
     "node-fetch": "^2.6.1",
+    "nodemailer": "^6.7.8",
     "pg": "^8.7.3",
     "request": "^2.88.2",
     "vue-axios": "^3.4.1"

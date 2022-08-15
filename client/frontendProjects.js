@@ -66,6 +66,7 @@ new Vue({
 
         item.documents = docs;
         const newItem = await request("/api/projects", "POST", item);
+        
 
         this.content.push(newItem);
 

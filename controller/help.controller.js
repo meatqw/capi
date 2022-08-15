@@ -1,4 +1,5 @@
 const db = require("../db");
+const send = require("./mail.controller")
 
 class helpController {
   async createAppHelp(req, res) {
@@ -7,6 +8,8 @@ class helpController {
       "INSERT INTO help (fullname, email, phone, documents) values ($1, $2, $3, $4) RETURNING *",
       [fullname, email, phone, documents]
     );
+    
+    send.SendMail(fullname, email, phone, documents)
     res.json(newAppHelp.rows[0]);
   }
 
