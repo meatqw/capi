@@ -9,7 +9,7 @@ class helpController {
       [fullname, email, phone, documents]
     );
     
-    send.SendMail(fullname, email, phone, documents)
+    send.SendMail(fullname, email, phone, documents);
     res.json(newAppHelp.rows[0]);
   }
 
