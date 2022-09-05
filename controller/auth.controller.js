@@ -10,7 +10,7 @@ class AuthController {
     const users = [
       {
           username: 'admin',
-          password: 'password',
+          password: 'MNS719516',
           role: 'admin'
       }
     ]
