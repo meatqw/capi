@@ -11,8 +11,8 @@ class UsController {
   }
 
   async getUs(req, res) {
-    const us = await db.query("SELECT * FROM us");
-    res.json(us.rows.reverse());
+    const us = await db.query("SELECT * FROM us ORDER BY date_create DESC");
+    res.json(us.rows);
   }
 
   async getOneUs(req, res) {

@@ -14,8 +14,8 @@ class helpController {
   }
 
   async getAppHelp(req, res) {
-    const help = await db.query("SELECT * FROM help");
-    res.json(help.rows.reverse());
+    const help = await db.query("SELECT * FROM help ORDER BY date_create DESC");
+    res.json(help.rows);
   }
 
   async getOneAppHelp(req, res) {

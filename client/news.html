@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.min.css?_v=20220806055226">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220806055226" />
     <title>Новости</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,21 +51,27 @@
                   </div>
                 </div>
                 <div class="content__buttons">
-                <button
-                  class="button button__item"
-                  @click="removeContent(item.id)"
-                >Удалить</button>
-                <button
-                  class="button button__item"
-                  @click="mark(item.id)"
-                  data-button-change
-                >
-                  Изменить
-                </button>
-              </div>
+                  <button
+                    class="button button__item"
+                    @click="removeContent(item.id)"
+                  >
+                    Удалить
+                  </button>
+                  <button
+                    class="button button__item"
+                    @click="mark(item.id)"
+                    data-button-change
+                  >
+                    Изменить
+                  </button>
+                </div>
               </div>
             </div>
-            <button class="button__add button" @click="panelControl()" id="panel">
+            <button
+              class="button__add button"
+              @click="panelControl()"
+              id="panel"
+            >
               <span id="panel_text">Открыть панель</span>
             </button>
 
@@ -84,12 +90,13 @@
                   type="text"
                   class="content__input input"
                 />
+
                 <input
+                  type="date"
                   id="date"
                   v-model="form.date"
-                  type="text"
-                  placeholder="Дата"
-                  class="content__input input"
+                  class="content__input input input-3"
+                  placeholder="Добавить дату"
                 />
               </div>
               <div class="content__add--area content__add--textareas">
@@ -115,7 +122,9 @@
                     class="button content__button"
                     type="button"
                     @click="update()"
-                  >Обновить</button>
+                  >
+                    Обновить
+                  </button>
                 </div>
               </div>
             </form>

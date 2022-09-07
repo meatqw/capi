@@ -11,8 +11,8 @@ class ProjectsController {
   }
 
   async getProjects(req, res) {
-    const projects = await db.query("SELECT * FROM projects");
-    res.json(projects.rows.reverse());
+    const projects = await db.query("SELECT * FROM projects ORDER BY date_create DESC");
+    res.json(projects.rows);
   }
 
   async getOneProjects(req, res) {

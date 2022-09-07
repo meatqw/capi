@@ -11,8 +11,8 @@ class NewsController {
   }
 
   async getNews(req, res) {
-    const news = await db.query("SELECT * FROM news");
-    res.json(news.rows.reverse());
+    const news = await db.query("SELECT * FROM news ORDER BY date DESC");
+    res.json(news.rows);
   }
 
   async getOneNews(req, res) {

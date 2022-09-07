@@ -15,7 +15,7 @@ create TABLE news(
     title VARCHAR(255),
     description TEXT,
     img VARCHAR(255),
-    date VARCHAR(255),
+    date timestamp,
     date_create timestamp default CURRENT_TIMESTAMP
 );
 

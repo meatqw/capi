@@ -11,8 +11,8 @@ class videoController {
   }
 
   async getVideo(req, res) {
-    const video = await db.query("SELECT * FROM video");
-    res.json(video.rows.reverse());
+    const video = await db.query("SELECT * FROM video ORDER BY date_create DESC");
+    res.json(video.rows);
   }
 
   async getOneVideo(req, res) {
