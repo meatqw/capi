@@ -7,6 +7,7 @@ const indexRoutes = require("./routes/index.routes");
 const authRoutes = require("./routes/auth.routes");
 const helpRouter = require("./routes/help.routes");
 const videoRouter = require("./routes/video.router");
+const ordersRouter = require("./routes/orders.routes");
 
 const cookieParser = require("cookie-parser");
 
@@ -83,6 +84,9 @@ app.use("/api", usRouter);
 
 // help
 app.use("/api", helpRouter);
+
+// orders
+app.use("/api", ordersRouter);
 
 app.use(express.static(path.join(__dirname, "client")));
 

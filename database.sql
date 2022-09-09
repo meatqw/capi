@@ -53,3 +53,14 @@ create TABLE video(
     link VARCHAR(255),
     date_create timestamp default CURRENT_TIMESTAMP
 );
+
+create TABLE orders(
+    id SERIAL PRIMARY KEY,
+    purpose VARCHAR(255),
+    sum FLOAT,
+    fname VARCHAR(255),
+    lname VARCHAR(255),
+    phone VARCHAR(255),
+    email VARCHAR(255),
+    date_create timestamp default CURRENT_TIMESTAMP
+);
