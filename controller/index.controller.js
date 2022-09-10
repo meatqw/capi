@@ -19,6 +19,9 @@ class IndexController {
   async renderVideo(req, res) {
     res.sendFile(path.resolve("client", "video.html"));
   }
+  async renderOrders(req, res) {
+    res.sendFile(path.resolve("client", "orders.html"));
+  }
 }
 
 module.exports = new IndexController();

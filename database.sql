@@ -55,7 +55,7 @@ create TABLE video(
 );
 
 create TABLE orders(
-    id SERIAL PRIMARY KEY,
+    id VARCHAR(255),
     purpose VARCHAR(255),
     sum FLOAT,
     fname VARCHAR(255),

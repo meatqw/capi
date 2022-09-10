@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.min.css?_v=20220727021754" />
-    <title>Заявки</title>
+    <title>Платежи</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,14 +45,14 @@
             <div class="content__items">
               <div class="content__item" v-for="item in content">
                 <div class="content__info">
-                  <div class="content__info-item">{{ item.fullname }}</div>
-                  <div class="content__info-item">{{ item.email }}</div>
+                  <div class="content__info-item">{{ item.id }}</div>
+                  <div class="content__info-item">{{ item.purpose }}</div>
+                  <div class="content__info-item">{{ item.sum }}</div>
+                  <div class="content__info-item">{{ item.fname }}</div>
+                  <div class="content__info-item">{{ item.lname }}</div>
                   <div class="content__info-item">{{ item.phone }}</div>
-                  <div class="content__info-item">
-                    <div v-for="doc in item.documents.docs">
-                      <a v-bind:href="'/uploads/' + doc" style="background-color: black;">{{doc}}</a>
-                    </div>
-                  </div>
+                  <div class="content__info-item">{{ item.email }}</div>
+                  <div class="content__info-item">{{ item.date_create }}</div>
                 </div>
                 <div class="content__buttons">
                   <button
@@ -135,5 +135,5 @@
     </div>
   </body>
 
-  <script type="module" src="frontendHelp.js"></script>
+  <script type="module" src="frontendOrders.js"></script>
 </html>

@@ -1,0 +1,1431 @@
+<style>
+    #allrecords ul {
+      padding-left: 0;
+    }
+  
+    #allrecords ul li a {
+      color: #8f284c;
+    }
+  
+    #allrecords ul li a:hover {
+      color: #fff;
+      background: #8f284c;
+    }
+  
+    .t-records ul {
+      padding-left: 0;
+    }
+  
+    #allrecords .methods__links a {
+      color: #000;
+    }
+  
+    #allrecords .methods__links a:hover {
+      text-decoration: underline;
+    }
+  
+    .t-records a {
+      color: #000;
+    }
+  
+    #allrecords .payment__button {
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+    }
+  
+    .t-records .payment__button {
+      color: #fff;
+    }
+    .t-records .payment__button {
+      color: #fff;
+      text-decoration: none;
+    }
+  
+    #allrecords .payment__button:hover {
+      color: #8f284c;
+      text-decoration: none;
+    }
+  
+    .t-records .payment__button:hover {
+      color: #8f284c;
+    }
+    .t-records .payment__button:hover {
+      color: #8f284c;
+      text-decoration: none;
+    }
+  
+    #allrecords .proceed-btn a {
+      color: #fff;
+      text-decoration: none;
+    }
+  
+    /* helped */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  body {
+      font-family: 'Montserrat';
+  }
+  
+  .helped {}
+  
+  .helped__container {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+  }
+  
+  .helped__title,
+  h2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 119.9%;
+      color: #DC7B9D;
+      padding-bottom: 60px;
+  }
+  
+  .helped__content {}
+  
+  table.table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+  }
+  
+  table.table tr {
+      background-color: #fff;
+  }
+  
+  table.table th,
+  table.table td {
+      padding: 18px 0;
+      text-align: center;
+      border: 1px solid #8F284C;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 119.9%;
+      width: 25%;
+  }
+  
+  table.table td {
+      font-size: 16px;
+  }
+  
+  @media (max-width: 959px) {
+      .helped__container {
+          padding: 30px 10px;
+          max-width: 640px;
+      }
+  
+      table.table th {
+          font-size: 16px;
+      }
+  }
+  
+  @media screen and (max-width: 639px) {
+      .helped__container {
+          padding: 30px 10px;
+          max-width: 460px;
+          margin: 0 auto;
+          text-align: center;
+      }
+  
+      .helped__title,
+      h2 {
+          font-size: 24px;
+          padding-bottom: 20px;
+      }
+  
+      table.table {
+          border: 0;
+      }
+  
+      table.table thead {
+          border: none;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+      }
+  
+      table.table tr {
+          border-bottom: 2px solid #8F284C;
+          display: block;
+          margin-bottom: 30px;
+      }
+  
+      table.table td {
+          display: flex;
+          text-align: right;
+          padding: 10px 5px;
+          width: 100%;
+          border-bottom: none;
+          border-left: none;
+          border-right: none;
+      }
+  
+      table.table td::before {
+          content: attr(data-label);
+          float: left;
+          font-weight: 500;
+          font-size: 12px;
+      }
+  
+      table.table td:last-child {
+          border-bottom: 0;
+      }
+  }
+  
+  @media (max-width: 479px) {
+      .helped__container {
+          padding: 20px 5px;
+          max-width: 320px;
+          margin: 0 auto;
+          text-align: center;
+      }
+  
+      table.table tr {
+          margin-bottom: 20px;
+      }
+  
+      table.table td::before {
+          font-size: 10px;
+      }
+  
+      table.table td {
+          padding: 7px 5px;
+      }
+  }
+  
+  /* payment */
+  body {
+      font-family: 'Montserrat';
+  }
+  
+  button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat';
+  }
+  
+  a {
+      color: #000;
+      text-decoration: none;
+  }
+  
+  h3 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 119.9%;
+      color: #8F284C;
+  }
+  
+  input {
+      outline: none;
+  }
+  
+  .input {
+      border: none;
+      border-bottom: 2px solid #DC7B9D;
+      width: 100%;
+      height: 27px;
+      font-family: 'Montserrat';
+      font-size: 20px;
+  }
+  
+  .input:focus {
+      border-bottom: 2px solid #8F284C;
+  }
+  
+  .input::placeholder {
+      font-family: 'Montserrat';
+      font-size: 20px;
+      font-weight: 200;
+      line-height: 119.9%;
+  }
+  
+  .button {
+      background: linear-gradient(270deg, rgba(194, 54, 104, 0.52) 0%, #AD778A 100%);
+      border-radius: 25px;
+      border: none;
+      font-family: 'Montserrat';
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 119.9%;
+      color: #FFFFFF;
+      cursor: pointer;
+      padding: 16px 80px;
+      transition: 0.2s;
+      filter: drop-shadow(0px 2px 4px #DC7B9D);
+  }
+  
+  .button:hover {
+      background: #fff;
+      outline: 1px solid #8F284C;
+      color: #8F284C;
+  }
+  
+  .rounded-field {
+      background: #FFFFFF;
+      box-shadow: 0px 2px 9px rgba(220, 123, 157, 0.3);
+      border-radius: 40px;
+  }
+  
+  .payment {
+      background: #fff;
+  }
+  
+  .payment__container {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+  
+  .payment__title {
+      text-align: center;
+  }
+  
+  .payment__content {
+      display: grid;
+      gap: 35px;
+  }
+  
+  .payment__methods {
+      max-width: 1085px;
+      width: 100%;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      margin: 0 auto;
+  }
+  
+  .methods {}
+  
+  .methods__title {}
+  
+  .methods__links {
+      display: flex;
+      font-size: 20px;
+  }
+  
+  .methods__link:not(:last-child) {
+      margin-right: 24px;
+  }
+  
+  .methods__link label:hover {
+      text-decoration: underline;
+      color: #8F284C;
+      cursor: pointer;
+  }
+  
+  .methods__link input[type=radio] {
+      display: none;
+  }
+  
+  .methods__link input[type=radio]:checked + label {
+      text-decoration: underline;
+  }
+  
+  .payment__second {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      // justify-content: center;
+      // gap: 39px;
+  }
+  
+  .payment__option {
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+  }
+  
+  .payment__purpose {
+      grid-column: 2;
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+  }
+  
+  .purpose {}
+  
+  .payment__third {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      // display: flex;
+      // gap: 40px;
+      // justify-content: center;
+  }
+  
+  .payment__amount {
+      width: 100%;
+      max-width: 500px;
+      display: grid;
+      gap: 30px;
+      padding: 30px 0 30px 55px;
+  }
+  
+  .amount {}
+  
+  .amount__title {}
+  
+  .amount__buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 10px;
+      justify-items: start;
+      color: #DC7B9D;
+  }
+  
+  .amount__button {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 119.9%;
+      color: #DC7B9D;
+  }
+  
+  .amount__button:hover {
+      color: #8F284C
+  }
+  
+  .amount__confirm {
+      display: none;
+      color: #fff;
+      max-width: 177px;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 38px;
+  }
+  
+  .amount__own {
+      display: flex;
+      max-width: 290px;
+      align-items: center;
+  }
+  
+  .amount__label {
+      margin-right: 5px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 119.9%;
+      color: #8F284C;
+  }
+  
+  .amount__input {
+      max-width: 137px;
+  }
+  
+  .payment__form {
+      display: grid;
+      align-items: center;
+      gap: 25px;
+      width: 100%;
+      padding: 35px;
+      max-width: 520px;
+  }
+  
+  .form-payment {}
+  
+  .form-payment__input {}
+  
+  .payment__footer {
+      max-width: 1140px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+  }
+  
+  .payment__button {}
+  
+  /* group button */
+  .form__radio-group {
+      display: none;
+      width: 100%;
+      overflow: hidden;
+      font-weight: 700;
+      font-size: 24px;
+      color:#8F284C;
+  }
+  .form__radio-group-item {   
+      width: 100%;
+  }
+  .form__radio-group input[type=radio] {
+      display: none;
+  }
+  .form__radio-group label {
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      border-right: none;
+      user-select: none;
+  }
+   
+  .form__radio-group .form__radio-group-item:first-child label {
+      // border-radius: 6px 0 0 6px;
+  }
+  .form__radio-group .form__radio-group-item:last-child label {
+      // border-radius: 0 6px 6px 0;
+      // border-right: 1px solid #999;
+  }
+   
+  /* Checked */
+  .form__radio-group input[type=radio]:checked + label {
+      background: #8F284C;;
+      color: #fff;
+  }
+   
+  /* Hover */
+  .form__radio-group label:hover {
+      color: #666;
+  }
+   
+  /* Disabled */
+  .form__radio-group input[type=radio]:disabled + label {
+      background: #efefef;
+      color: #666;
+  }
+  
+  
+  /* select */
+  .select {
+      position: relative;
+      display: block;
+      min-width: 220px;
+      width: 100%;
+      // max-width: 400px;
+  }
+  
+  .select__head {
+      width: 100%;
+      max-width: 100%;
+      box-shadow: 0px 2px 9px rgb(220 123 157 / 30%);
+      border-radius: 25px;
+      padding: 15px 25px;
+      font-weight: 600;
+      font-size: 24px;
+      color: inherit;
+      background-color: #fff;
+      cursor: pointer;
+  }
+  
+  .select__head::after {
+      width: 10px;
+      height: 6px;
+      background: #FFF url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.50495 5.78413L0.205241 1.25827C-0.0684138 0.970375 -0.0684138 0.503596 0.205241 0.215836C0.478652 -0.0719461 0.922098 -0.071946 1.19549 0.215837L5.00007 4.22052L8.80452 0.215953C9.07805 -0.0718292 9.52145 -0.0718292 9.79486 0.215953C10.0684 0.503736 10.0684 0.970492 9.79486 1.25839L5.49508 5.78425C5.35831 5.92814 5.17925 6 5.00009 6C4.82085 6 4.64165 5.928 4.50495 5.78413Z' fill='%23ED266A'/%3E%3C/svg%3E%0A") no-repeat center / cover;
+      position: absolute;
+      right: 20px;
+      bottom: 50%;
+      transform: translateY(50%);
+      content: '';
+      display: block;
+      transition: .2s ease-in;
+  }
+  
+  .select__head.open::after {
+      transform: translateY(50%) rotate(180deg);
+  }
+  
+  .select__list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      box-shadow: 0px 2px 9px rgb(220 123 157 / 30%);
+      border-radius: 20px;
+      margin-top: 5px;
+      max-height: 205px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      z-index: 100;
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      color: #252525;
+      scrollbar-color: dark;
+      scrollbar-width: thin;
+      overscroll-behavior: contain;
+  }
+  
+  .select__list::-webkit-scrollbar {
+      width: 7px;
+      background-color: #F8F9FA;
+      padding: 5px;
+  }
+  
+  .select__list::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #D9D9D9;
+  }
+  
+  .select__list .select__item {
+      position: relative;
+      border-top: 1px solid rgba(224, 229, 231, 0.5);
+      padding: 10px 15px;
+      cursor: pointer;
+      list-style-type: none;
+  }
+  
+  .select__list .select__item:hover {
+      background-color: rgba(224, 229, 231, 0.5);
+  }
+  
+  @media (max-width: 1199px) {
+      .payment__methods {
+          display: none;
+          justify-content: center;
+          justify-items: center;
+          row-gap: 5px;
+      }
+  }
+  
+  @media (max-width: 1099px) {
+      .payment__container {
+          max-width: 900px;
+      }
+  
+      .payment__methods {
+          max-width: 860px;
+          padding: 15px 10px;
+      }
+  
+      .payment__option {
+          max-width: 400px;
+      }
+  
+      .payment__purpose {
+          max-width: 420px;
+      }
+  
+      .payment__form {
+          padding: 30px;
+          max-width: 420px;
+      }
+  
+      .payment__amount {
+          max-width: 400px;
+          padding: 30px 0 30px 25px;
+      }
+  
+      .payment__footer {
+          max-width: 940px;
+      }
+  }
+  
+  @media (max-width: 900px) {
+      .payment__container {
+          padding: 50px 10px;
+      }
+  
+      .payment__title {
+          padding-bottom: 25px;
+          font-size: 32px;
+      }
+  
+      .payment__content {
+          gap: 22px;
+      }
+  
+      .payment__methods {
+          padding: 15px;
+          max-width: 620px;
+      }
+  
+      .methods__title {
+          font-size: 24px;
+      }
+  
+      .methods__links {
+          font-size: 14px;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+  
+      .methods__link {
+          margin-bottom: 5px;
+      }
+  
+      .payment__second {
+          display: grid;
+          grid-template-columns: auto;
+          gap: 20px;
+      }
+  
+      .payment__option {
+          max-width: 620px;
+          min-height: 55px;
+      }
+  
+      .payment__purpose {
+          grid-column: 1;
+          width: 100%;
+          max-width: 620px;
+      }
+  
+      .payment__third {
+          display: grid;
+          gap: 20px;
+          grid-template-columns: auto;
+      }
+  
+      .payment__amount {
+          width: 100%;
+          max-width: 620px;
+          display: grid;
+          gap: 25px;
+          padding: 30px;
+      }
+  
+      .amount__own {
+          max-width: 300px;
+      }
+  
+      .amount__buttons {
+          gap: 25px;
+      }
+  
+      .payment__form {
+          padding: 40px;
+          max-width: 620px;
+      }
+  
+      .payment__footer {
+          max-width: 100%;
+          justify-content: center;
+      }
+  
+      .payment__button {}
+  }
+  
+  @media (max-width: 575px) {
+      .payment__amount {
+          padding: 30px 30px 30px 30px;
+      }
+  
+      .payment__option {
+         font-size: 22px;
+      }
+  }
+  
+  
+  @media (max-width: 419px) {
+      h3 {
+          font-size: 16px;
+      }
+  
+      .input {
+          width: 100%;
+          height: 27px;
+          font-size: 14px;
+      }
+  
+      .input::placeholder {
+          font-size: 14px;
+      }
+  
+      .button {
+          font-size: 16px;
+          padding: 10px 0;
+          width: 100%;
+      }
+  
+      .rounded-field {
+          border-radius: 20px;
+      }
+  
+      .payment {
+          height: 100%;
+      }
+  
+      .payment__container {
+          padding: 30px 5px;
+          max-width: 100%;
+      }
+  
+      .payment__title {
+          font-size: 20px;
+          padding-bottom: 15px;
+      }
+  
+      .payment__content {
+          gap: 15px;
+      }
+  
+      .payment__methods {
+          max-width: 100%;
+          width: 100%;
+          padding: 15px 20px;
+      }
+  
+      .methods__title {
+          font-size: 16px;
+      }
+  
+      .methods__links {
+          font-size: 14px;
+      }
+  
+      .payment__second {
+          gap: 15px;
+      }
+  
+      .payment__option {
+          max-width: 100%;
+          min-height: 45px;
+          font-size: 18px;
+      }
+  
+      .option {}
+  
+      .option__button {
+          font-size: 16px;
+          border-radius: 0px 20px 20px 0px;
+      }
+  
+      .option__button-line {
+          border-radius: 20px 0 0 20px;
+      }
+  
+      .payment__purpose {
+          max-width: 100%;
+      }
+  
+      .payment__third {
+          gap: 15px;
+      }
+  
+      .payment__amount {
+          max-width: 100%;
+          gap: 20px;
+          padding: 15px 25px;
+      }
+  
+      .amount__buttons {
+          gap: 20px;
+          grid-template-columns: repeat(3, 70px);
+      }
+  
+      .amount__button {
+          font-size: 20px;
+      }
+  
+      .amount__confirm {
+          max-width: 140px;
+          font-size: 12px;
+          padding: 11px 0px;
+      }
+  
+      .amount__own {
+          max-width: 210px;
+      }
+  
+      .amount__label {
+          font-size: 16px;
+      }
+  
+      .amount__input {
+          max-width: 90px;
+          height: 23px;
+      }
+  
+      .payment__form {
+          gap: 15px;
+          padding: 14px 28px 23px 28px;
+          max-width: 520px;
+      }
+  
+      .payment__footer {
+          max-width: 1110px;
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+      }
+  
+      .select__head {
+          border-radius: 20px;
+          font-weight: 600;
+          font-size: 16px;
+      }
+  
+      .select__list {
+          border-radius: 20px;
+          margin-top: 10px;
+          max-height: 205px;
+          overflow-x: hidden;
+          overflow-y: auto;
+          z-index: 100;
+          margin: 0;
+          padding: 0;
+          font-size: 14px;
+          color: #252525;
+          scrollbar-color: dark;
+          scrollbar-width: thin;
+          overscroll-behavior: contain;
+      }
+  }
+  
+    /* popup cvc */
+    .credit-card {
+      font-family: "Montserrat";
+      width: 320px;
+      height: 400px;
+      border: 1px solid #ddd;
+      background: #ffffff;
+      box-shadow: 0px 0px 3px 1px #eeb4c8;
+      border-radius: 30px;
+      background-color: #fff;
+      box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
+    }
+  
+    .form-header {
+      height: 60px;
+      padding: 15px 20px 0;
+      border-bottom: 1px solid #e1e8ee;
+    }
+  
+    .form-body {
+      height: 340px;
+      padding: 30px 20px 20px;
+    }
+  
+    .title {
+      margin: 0;
+      color: #dc7b9d;
+      font-size: 25px;
+      font-weight: 700;
+    }
+  
+    .card-number,
+    .cvv-input input,
+    .month select,
+    .paypal-btn,
+    .proceed-btn,
+    .year select {
+      height: 42px;
+    }
+  
+    .card-number,
+    .month select,
+    .year select {
+      font-size: 14px;
+      font-weight: 100;
+      line-height: 14px;
+    }
+  
+    .card-number,
+    .cvv-details,
+    .cvv-input input,
+    .month select,
+    .year select {
+      color: #86939e;
+    }
+  
+    .card-number {
+      width: 100%;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      border: 2px solid #dc7b9d;
+      background: #fff;
+      border-radius: 30px;
+    }
+  
+    .month select,
+    .year select {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      width: 130px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      border: 2px solid #dc7b9d;
+      background: #fff;
+      border-radius: 30px;
+      background: url("https://designmodo.com/demo/creditcardform/caret.png")
+        no-repeat;
+      background-position: 85% 50%;
+    }
+  
+    .month select {
+      float: left;
+    }
+  
+    .year select {
+      float: right;
+    }
+  
+    .cvv-input input {
+      width: 110px;
+      float: left;
+      padding-left: 20px;
+      border: 2px solid #dc7b9d;
+      background: #fff;
+      border-radius: 30px;
+    }
+  
+    .cvv-details {
+      float: right;
+      margin-bottom: 30px;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 16px;
+    }
+  
+    .cvv-details p {
+      margin-top: 6px;
+    }
+  
+    .paypal-btn,
+    .proceed-btn {
+      cursor: pointer;
+      width: 100%;
+      border-color: transparent;
+      border-radius: 60px;
+      font-size: 16px;
+      filter: drop-shadow(0px 2px 4px #dc7b9d);
+    }
+  
+    .proceed-btn {
+      margin-bottom: 10px;
+      background: linear-gradient(
+        270deg,
+        rgba(194, 54, 104, 0.52) 0%,
+        #ad778a 100%
+      );
+    }
+  
+    .paypal-btn a,
+    .proceed-btn a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  
+    .proceed-btn a {
+      color: #fff;
+    }
+  
+    .paypal-btn a {
+      color: rgba(242, 242, 242, 0.7);
+    }
+  
+    .paypal-btn {
+      padding-right: 95px;
+      background: url("https://designmodo.com/demo/creditcardform/paypal-logo.svg")
+        no-repeat 65% 56% #009cde;
+    }
+  
+    .checkbox__email {
+      font-size: 14px;
+      font-weight: 200;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  
+    .checkbox__email input {
+      border: 1px solid #dc7b9d;
+    }
+  
+    /* popup */
+    body.lock {
+      overflow: hidden;
+    }
+  
+    .popup {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
+      transition: all 0.5s ease 0s;
+      z-index: 100000;
+    }
+  
+    .popup.open {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .popup__body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 10px;
+    }
+  
+    .popup__content {
+      position: relative;
+      color: #000;
+      max-width: 800px;
+    }
+  
+    .popup__close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+  
+    .popup__title {
+      font-size: 40px;
+      margin: 0px 0px 1em 0px;
+    }
+  
+    .popup__text {
+      font-size: 20px;
+    }
+  </style>
+  <div class="wrapper">
+    <section class="payment">
+      <div class="payment__container">
+        <h2 class="payment__title">Оказать помощь</h2>
+        <form action="https://citadeldobra.server.paykeeper.ru/order/inline/" class="payment__content" id="form">
+          <div class="payment__second">
+            <div class="purpose payment__purpose select">
+              <input class="select__input" type="hidden" id="service_name" name="service_name" />
+              <div class="select__head">Выберите</div>
+              <ul class="select__list" style="display: none"></ul>
+            </div>
+          </div>
+          <div class="payment__third">
+            <div class="payment__amount amount rounded-field">
+              <h3 class="amount__title">Сумма пожертвования:</h3>
+              <div class="amount__buttons">
+                <button  type="button" class="amount__button">100р</button>
+                <button type="button" class="amount__button">500р</button>
+                <button type="button" class="amount__button">1000р</button>
+              </div>
+              <div class="amount__own">
+                <label class="amount__label" for="amount__input"
+                  >Своя сумма:</label
+                >
+                <input
+                  type="text"
+                  name="sum"
+                  id="sum"
+                  class="amount__input input"
+                />
+              </div>
+              
+            </div>
+            <div class="payment__form form-payment rounded-field">
+              <input
+                type="text"
+                class="form-payment__input input"
+                name="lname"
+                id="lname"
+                required
+                placeholder="Введите Фамилию"
+              />
+              <input
+                type="text"
+                class="form-payment__input input"
+                name="fname"
+                id="fname"
+                required
+                placeholder="Введите Имя"
+              />
+              <input
+                type="email"
+                name="client_email"
+                class="form-payment__input input"
+                required
+                id="client_email"
+                placeholder="Введите почту"
+              />
+              <input
+                type="tel"
+                name="client_phone"
+                class="form-payment__input input"
+                required
+                id="client_phone"
+                placeholder="Введите телефон"
+              />
+              <input
+              type="text"
+              name="clientid"
+              id="clientid"
+              style="display: none;"
+            />
+            <input
+              type="text"
+              name="orderid"
+              id="orderid"
+              style="display: none;"
+            />
+            </div>
+          </div>
+          <div class="payment__footer">
+            <button type="submit" class="payment__button button popup-link"
+              >Далее</a
+            >
+          </div>
+        </form>
+      </div>
+    </section>
+  
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <script>
+    $('form').submit(function(){
+
+        var id = new Date().getTime()
+
+        if (service_name.value.length > 0 && sum.value.length > 0 && 
+        fname.value.length > 0 && lname.value.length > 0 && client_phone.value.length > 0 &&
+        client_email.value.length > 0) {
+            var urlApi = "http://localhost:3001/api/orders";
+            let data = {
+                'id': id,
+                'purpose': service_name.value,
+                'sum': Number(sum.value),
+                'fname': fname.value,
+                'lname': lname.value,
+                'phone': client_phone.value,
+                'email': client_email.value,
+            };
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", urlApi, true);
+            xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+
+            xhr.send(JSON.stringify(data));
+            
+            orderid.value = id;
+            clientid.value = fname.value + ' ' + lname.value;
+        } 
+      });
+    
+    
+  </script>
+
+  <script>
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.value == 'amount__button'){
+            document.getElementsByName('sum')[0].value = event.target.innerHTML.replace('р', '');
+        }
+        // if (event.target.class)
+    });
+  </script>
+  <script>
+    function getCookie(name) {
+      let cookie = {};
+      document.cookie.split(";").forEach(function (el) {
+        let [k, v] = el.split("=");
+        cookie[k.trim()] = v;
+      });
+      return cookie[name];
+    }
+  
+    function getData() {
+      let url = "https://web-bdheelpeer.ru/api/projects";
+  
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", url, false);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+      xhr.send();
+  
+      let projects = JSON.parse(xhr.responseText);
+  
+      const idCookie = getCookie("id");
+      let content = '<li class="select__item">На уставную деятельность фонда</li>';
+      if (idCookie != undefined) {
+        // find currentProject
+        var currentProject;
+        for (var i = 0; i < projects.length; i++) {
+          if (projects[i].id == idCookie) {
+            currentProject = projects[i];
+            break;
+          }
+        }
+        document.getElementsByClassName("select__input")[0].name =
+          currentProject.title;
+        document.getElementsByClassName("select__head")[0].innerHTML =
+          currentProject.title;
+      }
+      if (projects.length != 0) {
+        for (var i = 0; i < projects.length; i++) {
+          content += `<li class="select__item">${projects[i].title}</li>`;
+        }
+      }
+      document.getElementsByClassName("select__list")[0].innerHTML = content;
+    }
+  
+    getData();
+  </script>
+  <script>
+    jQuery(($) => {
+      $(".select").on("click", ".select__head", function () {
+        if ($(this).hasClass("open")) {
+          $(this).removeClass("open");
+          $(this).next().fadeOut();
+        } else {
+          $(".select__head").removeClass("open");
+          $(".select__list").fadeOut();
+          $(this).addClass("open");
+          $(this).next().fadeIn();
+        }
+      });
+  
+      $(".select").on("click", ".select__item", function () {
+        $(".select__head").removeClass("open");
+        $(this).parent().fadeOut();
+        $(this).parent().prev().text($(this).text());
+        $(this).parent().prev().prev().val($(this).text());
+      });
+  
+      $(document).click(function (e) {
+        if (!$(e.target).closest(".select").length) {
+          $(".select__head").removeClass("open");
+          $(".select__list").fadeOut();
+        }
+      });
+    });
+  </script>
+  <script>
+    const popupLinks = document.querySelectorAll(".popup-link");
+    const body = document.querySelector("body");
+    const lockPadding = document.querySelectorAll(".lock-padding");
+  
+    let unlock = true;
+  
+    const timeout = 10;
+  
+    if (popupLinks.length > 0) {
+      for (let index = 0; index < popupLinks.length; index++) {
+        const popupLink = popupLinks[index];
+        popupLink.addEventListener("click", function (e) {
+          const popupName = popupLink.getAttribute("href").replace("#", "");
+          const curentPopup = document.getElementById(popupName);
+          popupOpen(curentPopup);
+          e.prevetnDefault();
+        });
+      }
+    }
+  
+    const popupCloseIcon = document.querySelectorAll(".close-popup");
+    if (popupCloseIcon.length > 0) {
+      for (let index = 0; index < popupCloseIcon.length; index++) {
+        const el = popupCloseIcon[index];
+        el.addEventListener("click", function (e) {
+          popupClose(el.closest(".popup"));
+          e.preventDefault();
+        });
+      }
+    }
+  
+    function popupOpen(curentPopup) {
+      if (curentPopup && unlock) {
+        const popupActive = document.querySelector(".popup.open");
+        if (popupActive) {
+          popupClose(popupActive, false);
+        } else {
+          bodyLock();
+        }
+        curentPopup.classList.add("open");
+        curentPopup.addEventListener("click", function (e) {
+          if (!e.target.closest(".popup__content")) {
+            popupClose(e.target.closest(".popup"));
+          }
+        });
+      }
+    }
+    function popupClose(popupActive, doUnlock = true) {
+      if (unlock) {
+        popupActive.classList.remove("open");
+        if (doUnlock) {
+          bodyUnLock();
+        }
+      }
+    }
+  
+    function bodyLock() {
+      const lockPaddingValue =
+        window.innerWidth - document.querySelector(".wrapper").offsetWidth + "px";
+  
+      if (lockPadding.length > 0) {
+        for (let index = 0; index < lockPadding.length; index++) {
+          const el = lockPadding[index];
+          el.getElementsByClassName.paddingRight = lockPaddingValue;
+        }
+      }
+      body.style.paddingRight = lockPaddingValue;
+      body.classList.add("lock");
+  
+      unlock = false;
+      setTimeout(function () {
+        unlock = true;
+      }, timeout);
+    }
+  
+    function bodyUnLock() {
+      setTimeout(function () {
+        if (lockPadding.length > 0) {
+          for (let index = 0; index < lockPadding.length; index++) {
+            const el = lockPadding[index];
+            el.style.paddingRight = "0px";
+          }
+        }
+        body.style.paddingRight = "0px";
+        body.classList.remove("lock");
+      }, timeout);
+  
+      unlock = false;
+      setTimeout(function () {
+        unlock = true;
+      }, timeout);
+    }
+  
+    document.addEventListener("keydown", function (e) {
+      if (e.which === 27) {
+        const popupActive = document.querySelector(".popup.open");
+        popupClose(popupActive);
+      }
+    });
+  
+    (function () {
+      // проверяем поддержку
+      if (!Element.prototype.closest) {
+        // реализуем
+        Element.prototype.closest = function (css) {
+          var node = this;
+          while (node) {
+            if (node.matches(css)) return node;
+            else node = node.parentElement;
+          }
+          return null;
+        };
+      }
+    })();
+    (function () {
+      // проверяем поддержку
+      if (!Element.prototype.matches) {
+        // определяем свойство
+        Element.prototype.matches =
+          Element.prototype.matchesSelector ||
+          Element.prototype.webkitMatchesSelector ||
+          Element.prototype.mozMatchesSelector ||
+          Element.prototype.msMatchesSelector;
+      }
+    })();
+  </script>
+  
