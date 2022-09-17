@@ -1097,22 +1097,74 @@
     <section class="payment">
       <div class="payment__container">
         <h2 class="payment__title">Оказать помощь</h2>
-        <form action="https://citadeldobra.server.paykeeper.ru/order/inline/" class="payment__content" id="form">
+        <form action="" class="payment__content">
+          <div class="payment__methods methods rounded-field">
+            <h3 class="methods__title">Способы оплаты:</h3>
+            <div class="methods__links">
+              <div class="methods__link">
+                <input
+                  id="radio-method-1"
+                  type="radio"
+                  name="methods"
+                  value="1"
+                  checked
+                />
+                <label for="radio-method-1">Банковские карты</label>
+              </div>
+              <div class="methods__link">
+                <input
+                  id="radio-method-2"
+                  type="radio"
+                  name="methods"
+                  value="2"
+                />
+                <label for="radio-method-2">Яндекс Деньги</label>
+              </div>
+              <div class="methods__link">
+                <input
+                  id="radio-method-3"
+                  type="radio"
+                  name="methods"
+                  value="3"
+                />
+                <label for="radio-method-3">SberPay</label>
+              </div>
+              <div class="methods__link">
+                <input
+                  id="radio-method-4"
+                  type="radio"
+                  name="methods"
+                  value="4"
+                />
+                <label for="radio-method-4">Яндекс Pay</label>
+              </div>
+            </div>
+          </div>
           <div class="payment__second">
+            <div class="form__radio-group payment__option option rounded-field">
+              <div class="form__radio-group-item">
+                <input id="radio-1" type="radio" name="radio" value="1" checked />
+                <label for="radio-1">Разово</label>
+              </div>
+              <div class="form__radio-group-item">
+                <input id="radio-2" type="radio" name="radio" value="2" />
+                <label for="radio-2">Ежемесячно</label>
+              </div>
+            </div>
+  
             <div class="purpose payment__purpose select">
-              <input class="select__input" type="hidden" id="service_name" name="service_name" />
+              <input class="select__input" type="hidden" name="" />
               <div class="select__head">Выберите</div>
               <ul class="select__list" style="display: none"></ul>
-              
             </div>
           </div>
           <div class="payment__third">
             <div class="payment__amount amount rounded-field">
               <h3 class="amount__title">Сумма пожертвования:</h3>
               <div class="amount__buttons">
-                <button  type="button" class="amount__button">100р</button>
-                <button type="button" class="amount__button">500р</button>
-                <button type="button" class="amount__button">1000р</button>
+                <button class="amount__button">100р</button>
+                <button class="amount__button">500р</button>
+                <button class="amount__button">1000р</button>
               </div>
               <div class="amount__own">
                 <label class="amount__label" for="amount__input"
@@ -1120,58 +1172,41 @@
                 >
                 <input
                   type="text"
-                  name="sum"
-                  id="sum"
+                  name="amount__input"
                   class="amount__input input"
                 />
               </div>
-              
+              <button class="amount__button button amount__confirm">
+                Подтвердить
+              </button>
             </div>
             <div class="payment__form form-payment rounded-field">
               <input
                 type="text"
                 class="form-payment__input input"
-                name="lname"
-                id="lname"
                 required
                 placeholder="Введите Фамилию"
               />
               <input
                 type="text"
                 class="form-payment__input input"
-                name="fname"
-                id="fname"
                 required
                 placeholder="Введите Имя"
               />
               <input
                 type="email"
-                name="client_email"
+                name="email"
                 class="form-payment__input input"
                 required
-                id="client_email"
                 placeholder="Введите почту"
               />
               <input
                 type="tel"
-                name="client_phone"
+                name="phone"
                 class="form-payment__input input"
                 required
-                id="client_phone"
                 placeholder="Введите телефон"
               />
-              <input
-              type="text"
-              name="clientid"
-              id="clientid"
-              style="display: none;"
-            />
-            <input
-              type="text"
-              name="orderid"
-              id="orderid"
-              style="display: none;"
-            />
             </div>
           </div>
           <div class="payment__footer">
@@ -1183,50 +1218,77 @@
       </div>
     </section>
   
+    <div id="popup-cvc" class="popup">
+      <div class="popup__body">
+        <div class="popup__content">
+          <!-- <a href="#" class="popup__close close-popup">&times;</a> -->
+          <form class="credit-card">
+            <div class="form-header">
+              <h4 class="title">Заполните данные</h4>
+            </div>
+  
+            <div class="form-body">
+              <!-- Card Number -->
+              <input type="text" class="card-number" placeholder="Номер карты" />
+  
+              <!-- Date Field -->
+              <div class="date-field">
+                <div class="month">
+                  <select name="Month">
+                    <option value="january">Январь</option>
+                    <option value="february">Февраль</option>
+                    <option value="march">Март</option>
+                    <option value="april">Апрель</option>
+                    <option value="may">Май</option>
+                    <option value="june">Июнь</option>
+                    <option value="july">Июль</option>
+                    <option value="august">Август</option>
+                    <option value="september">Сентябрь</option>
+                    <option value="october">Остябрь</option>
+                    <option value="november">Ноябрь</option>
+                    <option value="december">Декабрь</option>
+                  </select>
+                </div>
+                <div class="year">
+                  <select name="Year">
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                  </select>
+                </div>
+              </div>
+  
+              <!-- Card Verification Field -->
+              <div class="card-verification">
+                <div class="cvv-input">
+                  <input type="text" placeholder="CVV" />
+                </div>
+                <div class="cvv-details">
+                  <p>3 или 4 цифры, обычно <br />на полосе для подписи</p>
+                </div>
+              </div>
+  
+              <!-- Buttons -->
+              <button type="submit" class="proceed-btn">
+                <a href="#">Отправить</a>
+              </button>
+              <div class="checkbox__email">
+                <input type="checkbox" id="checkbox-email" />
+                <label for="checkbox-email">Отправить квитанцию на E-mail</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-  <script>
-    $('form').submit(function(){
-
-        var id = new Date().getTime()
-
-        if (service_name.value.length > 0 && sum.value.length > 0 && 
-        fname.value.length > 0 && lname.value.length > 0 && client_phone.value.length > 0 &&
-        client_email.value.length > 0) {
-            var urlApi = "http://localhost:3001/api/orders";
-            let data = {
-                'id': id,
-                'purpose': service_name.value,
-                'sum': Number(sum.value),
-                'fname': fname.value,
-                'lname': lname.value,
-                'phone': client_phone.value,
-                'email': client_email.value,
-            };
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", urlApi, true);
-            xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
-
-            xhr.send(JSON.stringify(data));
-            
-            orderid.value = id;
-            clientid.value = fname.value + ' ' + lname.value;
-        } 
-      });
-    
-    
-  </script>
-
-  <script>
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.value == 'amount__button'){
-            document.getElementsByName('sum')[0].value = event.target.innerHTML.replace('р', '');
-        }
-        // if (event.target.class)
-    });
-  </script>
   <script>
     function getCookie(name) {
       let cookie = {};
@@ -1262,13 +1324,6 @@
           currentProject.title;
         document.getElementsByClassName("select__head")[0].innerHTML =
           currentProject.title;
-          service_name.value = currentProject.title;
-      } else {
-        document.getElementsByClassName("select__input")[0].name =
-        'На уставную деятельность фонда';
-      document.getElementsByClassName("select__head")[0].innerHTML =
-        'На уставную деятельность фонда';
-        service_name.value = "На уставную деятельность фонда"
       }
       if (projects.length != 0) {
         for (var i = 0; i < projects.length; i++) {

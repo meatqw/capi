@@ -58,6 +58,8 @@ new Vue({
             "";
 
         switchPanel();
+
+        document.location.reload() 
       }
     },
     // maek data for update
@@ -106,6 +108,8 @@ new Vue({
       this.update_id = "";
 
       switchPanel();
+
+      document.location.reload()      
     },
     async removeContent(id) {
       await request(`/api/news/${id}`, "DELETE");
