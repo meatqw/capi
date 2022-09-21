@@ -78,6 +78,8 @@ new Vue({
             "";
         // this.form.data =
         switchPanel();
+
+        document.location.reload()
       }
     },
     async removeContent(id) {
@@ -159,6 +161,8 @@ new Vue({
       this.update_id = "";
 
       switchPanel();
+
+      document.location.reload()
     },
     async logout() {
       const token = await request("/get-cookie");
@@ -237,5 +241,6 @@ async function switchPanel() {
     document.getElementById("panel_text").innerHTML = "Закрыть панель";
   } else {
     document.getElementById("panel_text").innerHTML = "Открыть панель";
+    document.location.reload()
   }
 }

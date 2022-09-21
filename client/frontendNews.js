@@ -122,13 +122,15 @@ new Vue({
       window.location.href = "/auth";
     },
     async panelControl() {
-      switchPanel();
+      console.log(this.form)
       this.form.title =
         this.form.description =
         this.form.img =
         this.form.date =
           "";
       this.update_id = "";
+      switchPanel();
+      
     },
   },
   async mounted() {
@@ -174,6 +176,7 @@ async function request(url, method = "GET", data = null) {
 }
 
 async function switchPanel() {
+  
   if (document.getElementById("form").className == "content__add") {
     document.getElementById("form").className = "content__add content--active";
   } else {
@@ -191,5 +194,6 @@ async function switchPanel() {
     document.getElementById("panel_text").innerHTML = "Закрыть панель";
   } else {
     document.getElementById("panel_text").innerHTML = "Открыть панель";
+    document.location.reload()
   }
 }
