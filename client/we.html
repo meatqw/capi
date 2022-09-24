@@ -48,10 +48,21 @@
                   <div class="content__info-item">{{ item.objective }}</div>
                   <div class="content__info-item">{{ item.amount }}</div>
                 </div>
-                <button
-                  class="button button__item"
-                  @click="removeContent(item.id)"
-                >Удалить</button>
+                <div class="content__buttons">
+                  <button
+                    class="button button__item"
+                    @click="removeContent(item.id)"
+                  >
+                    Удалить
+                  </button>
+                  <button
+                    class="button button__item"
+                    @click="mark(item.id)"
+                    data-button-change
+                  >
+                    Изменить
+                  </button>
+                  </div>
               </div>
             </div>
             <button class="button__add button" @click="panelControl()" id="panel">
@@ -66,12 +77,12 @@
             >
             <div class="content__add--area content__add--inputs">
               <input
-                id="date"
-                v-model="form.date"
-                placeholder="Дата"
-                type="text"
-                class="content__input input"
-              />
+                  type="date"
+                  id="date"
+                  v-model="form.date"
+                  class="content__input input input-3"
+                  placeholder="Добавить дату"
+                />
               <input
                 id="beneficiary"
                 v-model="form.beneficiary"
@@ -96,6 +107,13 @@
             </div>
             <div class="content__add--area content__add--buttons">
               <button class="button content__button">Добавить</button>
+              <div v-if="update_id!=''">
+                <button
+                  class="button content__button"
+                  type="button"
+                  @click="update()"
+                >Обновить</button>
+              </div>
             </div>
             </form>
         </div>

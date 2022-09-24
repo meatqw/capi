@@ -15,7 +15,7 @@ class WeController {
   }
 
   async getWe(req, res) {
-    const we = await db.query("SELECT * FROM we ORDER BY date_create DESC");
+    const we = await db.query("SELECT * FROM we ORDER BY date DESC");
     res.json(we.rows);
   }
 
@@ -26,10 +26,10 @@ class WeController {
   }
 
   async updateWe(req, res) {
-    const { date, beneficiary, objective, amount } = req.body;
+    const { date, beneficiary, objective, amount, id } = req.body;
     const we = await db.query(
       "UPDATE we set date = $1, beneficiary = $2, objective = $3, amount = $4 where id = $5 RETURNING *",
-      [date, beneficiary, objective, amount]
+      [date, beneficiary, objective, amount, id]
     );
 
     res.json(we.rows[0]);

@@ -45,7 +45,46 @@ new Vue({
         this.form.amount =
           "";
       switchPanel();
+      document.location.reload();
     },
+     // maek data for update
+     async mark(id) {
+      const item = this.content.find((c) => c.id === id);
+
+      switchPanel();
+
+      this.form.date = item.date;
+      this.form.benefactor = item.benefactor;
+      this.form.objective = item.objective;
+      this.form.amount = item.amount;
+
+
+      this.update_id = id;
+    },
+    async update() {
+      const item = this.content.find((c) => c.id === this.update_id);
+
+      this.form.id = item.id;
+
+      const updated = await request(`/api/us`, "PUT", { ...this.form });
+
+      item.date = updated.date;
+      item.benefactor = updated.benefactor;
+      item.objective = updated.objective;
+      item.amount = updated.amount
+
+      this.form.date =
+        this.form.benefactor =
+        this.form.objective =
+        this.form.amount =
+          "";
+      this.update_id = "";
+
+      switchPanel();
+
+      document.location.reload();
+    },
+    
     // async markContact(id) {
     //   const contact = this.contacts.find(c => c.id === id);
     //   const updated = await request(`/api/user/${id}`, 'PUT', {...contact, marked:true})
