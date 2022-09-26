@@ -25,8 +25,7 @@ class AuthController {
       // generate an access token
       const accessToken = jwt.sign(
         { username: user.username, role: user.role },
-        accessTokenSecret,
-        { expiresIn: "20m" }
+        accessTokenSecret
       );
       const refreshToken = jwt.sign(
         { username: user.username, role: user.role },
@@ -62,8 +61,7 @@ class AuthController {
 
       const accessToken = jwt.sign(
         { username: user.username, role: user.role },
-        accessTokenSecret,
-        { expiresIn: "20m" }
+        accessTokenSecret
       );
 
       res.json({
