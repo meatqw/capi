@@ -38,7 +38,6 @@ new Vue({
   methods: {
     async createContent() {
       // upload img
-      if (this.$refs.file.files.length > 0) {
         this.Images = this.$refs.file.files[0];
         const headers = { "Content-Type": "multipart/form-data" };
         let filename = await axios.post(
@@ -80,7 +79,6 @@ new Vue({
         switchPanel();
 
         document.location.reload()
-      }
     },
     async removeContent(id) {
       await request(`/api/projects/${id}`, "DELETE");
